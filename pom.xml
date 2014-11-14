@@ -111,7 +111,7 @@
                 <dependency>
                     <groupId>org.clojure</groupId>
                     <artifactId>clojure</artifactId>
-                    <version>1.4.0</version>
+                    <version>1.5.1</version>
                 </dependency>
             </dependencies>
         </profile>
@@ -133,7 +133,7 @@
                 <dependency>
                     <groupId>org.clojure</groupId>
                     <artifactId>clojure</artifactId>
-                    <version>1.4.0</version>
+                    <version>1.5.1</version>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>
