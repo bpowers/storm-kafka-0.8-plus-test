@@ -2,6 +2,11 @@ zookeeper:
   image: jplock/zookeeper:3.4.6
   ports: 
     - "2181:2181"
+cassandra:
+  image: bpowers/docker-cassandra-cluster:latest
+  ports:
+    - "9042:9042"
+    - "9160:9160"
 nimbus:
   image: wurstmeister/storm-nimbus:0.9.2
   ports:
@@ -10,6 +15,7 @@ nimbus:
     - "6627:6627"
   links: 
     - zookeeper:zk
+    - cassandra:cassandra
 supervisor:
   image: wurstmeister/storm-supervisor:0.9.2
   ports:
@@ -17,6 +23,7 @@ supervisor:
   links: 
     - nimbus:nimbus
     - zookeeper:zk
+    - cassandra:cassandra
 ui:
   image: wurstmeister/storm-ui:0.9.2
   ports:
