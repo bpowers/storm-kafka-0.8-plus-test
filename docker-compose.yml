@@ -1,0 +1,20 @@
+zookeeper:
+  image: jplock/zookeeper:3.4.6
+  ports: 
+    - "2181:2181"
+cassandra:
+ image: bpowers/docker-cassandra-cluster:2.1.3
+ ports:
+    - "9042:9042"
+    - "9160:9160"
+kafka1:
+  image: wurstmeister/kafka:0.8.1.1-1
+  ports:
+    - "9092:9092"
+  links:
+    - zookeeper:zk
+  environment:
+    BROKER_ID: 1
+    HOST_IP: 192.168.1.173
+    PORT: 9092
+    KAFKA_ADVERTISED_PORT: 9092
